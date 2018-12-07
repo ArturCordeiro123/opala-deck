@@ -1,0 +1,47 @@
+<!--
+  Generated template for the GaleriaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>galeria</ion-title>
+
+    <button ion-button menuToggle="left" start>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-color: #279949">
+  <ion-card *ngFor="let item of cadastraCarro">
+
+    <ion-item>
+      <h2>Nome do Carro: {{item.nome}}</h2>
+      <p>Ano: {{item.ano}}</p>
+      <p>Motor: {{item.motor}}</p>
+      <p>Modelo do carro: {{item.modelo}}</p>
+    </ion-item>
+
+    <!--espaco paara imagem-->
+
+    <ion-card-content>
+      <p>{{item.descricao}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small (click)="editar(item.id)">
+          <ion-icon name="hammer"></ion-icon>
+          <div>Editar ou Excluir</div>
+        </button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-card>
+</ion-content>
