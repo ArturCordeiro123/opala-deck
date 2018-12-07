@@ -3,7 +3,7 @@ import { CadastroUsuario } from './../../models/cadastro-usuario.interface';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AngularFireAuth} from 'angularfire2/auth';
- 
+import firebase from 'firebase';
 
 /**
  * Generated class for the LoginPage page.
@@ -32,6 +32,13 @@ export class LoginPage {
       
     }
 
+  }
+  loginGemail(){
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider).then(()=>{
+      this.afAuth.auth.getRedirectResult().then(res=>{
+        this.navCtrl.setRoot('GaleriaPage');
+      });
+    });
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
